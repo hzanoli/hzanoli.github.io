@@ -1,0 +1,166 @@
+$theme-colors: (
+        "primary": #3C3D3E,
+        "secondary": #A1A4A5,
+        "dark": #262626,
+        "light": #ffffff,
+        "accent": #D99B29,
+        "outfocus": #D9D2D0,
+        "danger": #DB2B39,
+        "blue": #29335C,
+        "success": #119822
+);
+
+$enable-negative-margins: true;
+
+$font-family-base: Quicksand;
+
+$enable-rounded: false;
+
+@import "../../../bootstrap/scss/bootstrap";
+
+
+.navbar-nav > li {
+  float: left;
+  position: relative;
+}
+
+.navbar-nav > li > a:hover {
+  @extend .bg-accent;
+  @extend .text-primary;
+}
+
+.navbar-quadrado {
+  @extend .navbar;
+  @extend .bg-light;
+  @extend .navbar-expand-md;
+  @extend .navbar-light;
+  @extend .fixed-top;
+  @extend .border-bottom;
+  @extend .shadow-sm;
+}
+
+.card-quadrado .card-quadrado-body .entry-content > a {
+  @extend .text-primary;
+
+  :hover {
+    @extend .bg-accent;
+  }
+}
+
+.footer-quadrado {
+  @extend .mt-auto;
+  @extend .border-top;
+  @extend .py-3;
+  @extend .bg-light;
+  @extend .text-primary;
+}
+
+.btn-card-quadrado {
+  @extend .btn-primary;
+  @extend .link-light;
+  @extend .mt-3;
+  @extend .mb-3;
+  @extend .me-n5;
+  @extend .pe-5;
+
+  &:hover {
+    @extend .border-accent;
+    @extend .bg-accent;
+    @extend .text-primary;
+
+    text-decoration: if($link-hover-decoration == underline, none, null);
+  }
+}
+
+.svg-fill-primary {
+  fill: theme-color("primary");
+}
+
+.svg-fill-light {
+  fill: theme-color("light");
+}
+
+.svg-fill-accent {
+  fill: theme-color("accent");
+}
+
+.detail-icon {
+  @extend .svg-fill-primary;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.quadrado-card-icon {
+  @extend .svg-fill-primary;
+  width: 1em;
+  height: 1em;
+}
+
+.svg-fill-secondary {
+  fill: theme-color("secondary");
+}
+
+.quadrado-basic {
+  @extend .bg-light;
+}
+
+.vertically-centered {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+
+.card-quadrado {
+  @extend .card;
+  @extend .border-0;
+  @extend .ms-4;
+  @extend .mb-4;
+  @extend .mt-4;
+}
+
+.card-quadrado-header {
+  @extend .card-header;
+  @extend .bg-primary;
+  @extend .border-0;
+  @extend .text-light;
+  @extend .ms-0;
+  @extend .me-5;
+  @extend .h3;
+  z-index: 2;
+}
+
+.card-quadrado-header-link {
+  @extend .card-quadrado-header;
+  @extend .nounderline;
+  @extend .text-light;
+}
+
+a.card-quadrado-header-link:hover {
+  @extend .bg-accent;
+  @extend .text-primary;
+}
+
+.card-quadrado-body {
+  @extend .card-body;
+  @extend .bg-secondary;
+  @extend .mt-n4;
+  @extend .me-4;
+  @extend .ms-4;
+  @extend .pt-5;
+  @extend .pe-5;
+  @extend .ps-5;
+  z-index: 1;
+}
+
+.card-quadrado-header-secondary-style {
+  @extend .text-light;
+  @extend .bg-secondary;
+}
+
+body {
+  padding-top: 65px;
+}
+
+.nounderline {
+  text-decoration: none !important
+}

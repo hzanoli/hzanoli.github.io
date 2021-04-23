@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="content" xmlns="http://www.w3.org/1999/html">
+    {% block content_title %}
+    {% endblock %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                {% for article in articles_page.object_list %}
+
+                <article class="hentry">
+                    <div class="card-quadrado">
+                        <a class="card-quadrado-header-link" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+                           title="Permalink to {{ article.title|striptags }}">
+                            <header>
+                                <h2 class="entry-title">
+                                    {{ article.title }}
+                                </h2>
+                            </header><!-- /.post-info -->
+                        </a>
+                        <div class="card-quadrado-body ">
+                            <div class="entry-content"> {{ article.summary }}</div><!-- /.entry-content -->
+                            <footer class="post-info">
+                                <div class="float-start">
+                                    <time class="published" datetime="{{ article.date.isoformat() }}"> {{
+                                        article.locale_date }}
+                                    </time>
+                                </div>
+                                <div>
+                                    <a href="{{ SITEURL }}/{{ article.url }}"
+                                       class="btn btn-card-quadrado float-end">&rarr; More</a>
+                                </div>
+
+                            </footer>
+                        </div>
+
+                    </div>
+                </article>
+                {% endfor %}
+                {% if articles_page.has_other_pages() %}
+                {% include 'pagination.html' %}
+                {% endif %}
+            </div>
+
+            <div class="col-lg-4">
+                {% include 'about.html' %}
+
+                {% if LINKS %}
+                <div class="card-quadrado">
+                    <div class="card-quadrado-header">
+                        <h2 class="entry-title"> {{ LINKS_WIDGET_NAME | default('Links') }} </h2>
+                    </div>
+                    <div class="entry-content card-quadrado-body">
+                        {% for name, link in LINKS %}
+                        <div>
+                            <a href="{{ link }}" class="btn btn-card-quadrado float-en">&nearr; {{ name }}</a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div><!-- /.blogroll -->
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section><!-- /#content -->
+
+{% endblock content %}
