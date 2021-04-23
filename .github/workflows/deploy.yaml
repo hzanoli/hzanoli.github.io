@@ -8,30 +8,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout the current repository
-      uses: actions/checkout@v2
-      with:
-        ref: 'dev'
+      - name: Checkout the current repository
+        uses: actions/checkout@v2
+        with:
+          ref: 'dev'
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.9'
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install setuptools wheel twine
-        pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install setuptools wheel twine
+          pip install -r requirements.txt
 
-#    - name: Compile CSS from SCSS files
-#      uses: gha-utilities/sass-build@v0.3.7
-#      with:
-#        source: themes/quadrado/sass/css/style.scss
-#        destination: themes/quadrado/static/css/style.css
+      #    - name: Compile CSS from SCSS files
+      #      uses: gha-utilities/sass-build@v0.3.7
+      #      with:
+      #        source: themes/quadrado/sass/css/style.scss
+      #        destination: themes/quadrado/static/css/style.css
 
-    - name: publish
-      run: |
-      pelican content -o output -s pelicanconf.py
-      ghp-import output
-      git push git@github.com:hzanoli/hzanoli.github.io.git gh-pages:master
+      - name: publish
+        run: |
+          pelican content -o output -s pelicanconf.py
+          ghp-import output
+          git push git@github.com:hzanoli/hzanoli.github.io.git gh-pages:master
