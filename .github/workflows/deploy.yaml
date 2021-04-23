@@ -30,4 +30,4 @@ jobs:
           ghp-import output
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git push origin gh-pages:master
+          git push origin gh-pages:main
