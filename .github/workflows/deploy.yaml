@@ -24,14 +24,10 @@ jobs:
           pip install setuptools wheel twine
           pip install -r requirements.txt
 
-      #    - name: Compile CSS from SCSS files
-      #      uses: gha-utilities/sass-build@v0.3.7
-      #      with:
-      #        source: themes/quadrado/sass/css/style.scss
-      #        destination: themes/quadrado/static/css/style.css
-
       - name: publish
         run: |
           pelican content -o output -s pelicanconf.py
           ghp-import output
-          git push git@github.com:hzanoli/hzanoli.github.io.git gh-pages:master
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git push gh-pages:master
