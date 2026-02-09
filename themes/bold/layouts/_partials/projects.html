@@ -1,0 +1,23 @@
+{{ $projects := where site.RegularPages "Section" "projects" }}
+{{ with $projects }}
+<section class="projects" id="projects">
+  <div class="section-header">
+    <div class="section-title">Projects</div>
+    <div class="section-number">001 — WORK</div>
+  </div>
+  <div class="projects-grid">
+    {{ range $i, $p := . }}
+    <div class="project-card">
+      <div class="project-thumb">
+        {{ with $p.Params.tag }}<span class="tag">{{ . }}</span>{{ end }}
+      </div>
+      <div class="project-info">
+        <div class="project-num">{{ printf "%02d" (add $i 1) }}/</div>
+        <h3>{{ $p.Title }}</h3>
+        <p>{{ $p.Params.description }}</p>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

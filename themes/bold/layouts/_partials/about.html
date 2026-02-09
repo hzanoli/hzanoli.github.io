@@ -1,0 +1,32 @@
+{{ with site.Params.about }}
+<section class="about" id="about">
+  <div class="about-left">
+    <h2>
+      {{ .heading1 }}
+      <span>{{ .heading2 }}</span>
+    </h2>
+    <p>{{ .bio }}</p>
+    <div class="about-cta">
+      <a href="{{ .ctaURL }}" class="btn btn-primary">{{ .ctaText }} &rarr;</a>
+    </div>
+  </div>
+  <div class="about-right">
+    <div class="skills-label">TECHNOLOGIES &amp; TOOLS</div>
+    <div class="skills-grid">
+      {{ range .skills }}
+        <span class="skill-pill">{{ . }}</span>
+      {{ end }}
+    </div>
+    {{ with .stats }}
+    <div class="stat-row">
+      {{ range . }}
+      <div class="stat-item">
+        <div class="stat-num">{{ .number }}</div>
+        <div class="stat-label">{{ .label }}</div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

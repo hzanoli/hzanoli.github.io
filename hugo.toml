@@ -1,0 +1,71 @@
+baseURL = 'https://hzanoli.github.io/'
+languageCode = 'en-us'
+title = 'Henrique Zanoli'
+theme = 'bold'
+
+[taxonomies]
+
+[pagination]
+  pagerSize = 10
+
+[menus]
+  [[menus.main]]
+    name = 'Home'
+    url = '/'
+    weight = 1
+  [[menus.main]]
+    name = 'Blog'
+    url = '/blog/'
+    weight = 2
+  [[menus.main]]
+    name = 'About'
+    url = '/#about'
+    weight = 3
+
+  [[menus.footer]]
+    name = 'GitHub'
+    url = 'https://github.com/hzanoli'
+    weight = 1
+  [[menus.footer]]
+    name = 'LinkedIn'
+    url = 'https://www.linkedin.com/in/hzanoli'
+    weight = 2
+  [[menus.footer]]
+    name = 'Email'
+    url = 'mailto:henrique@zanoli.xyz'
+    weight = 3
+
+[params]
+  logoPrefix = 'HENRIQUE'
+  logoAccent = 'ZANOLI'
+
+  [params.hero]
+    line1 = 'MAKING'
+    line2 = 'COMPLEX'
+    line3 = 'SIMPLE.'
+    bgText = 'HELLO'
+    description = 'Developer, physicist, and maker. I build software for scientific instruments and embedded systems, with a love to connect code, data, and science.'
+    ctaPrimaryText = 'ABOUT ME'
+    ctaPrimaryURL = '/#about'
+    ctaSecondaryText = 'READ BLOG'
+    ctaSecondaryURL = '/blog/'
+    avatarInitials = 'HZ'
+    avatarImage = '/img/portrait.jpg'
+
+  [params.marquee]
+    items = ['RUST', 'C++', 'PYTHON', 'JAVA', 'EMBEDDED', 'PHYSICS', 'LARGE DATA', 'CI/CD']
+
+  [params.about]
+    heading1 = 'A BIT'
+    heading2 = 'ABOUT ME.'
+    bio = "Software developer. Physics PhD. I spent years analyzing data (TB-PBs) from particle collisions at the Large Hadron Collider, then moved to industry and started shipping customer-facing software. I've built embedded systems running in millions of homes for Philips Hue and tools that national laboratories and research centers rely on daily. I like solving hard problems."
+    ctaText = 'GET IN TOUCH'
+    ctaURL = 'mailto:henrique@zanoli.xyz'
+    skills = ['Rust', 'C++', 'Python', 'Java', 'SQL', 'Linux', 'Git', 'CI/CD', 'Docker', 'Bazel', 'Flutter']
+
+    [[params.about.stats]]
+      number = '10+'
+      label = 'YEARS EXP'
+    [[params.about.stats]]
+      number = 'PhD'
+      label = 'PHYSICS'

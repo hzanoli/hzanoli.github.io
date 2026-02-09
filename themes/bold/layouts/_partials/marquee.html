@@ -1,0 +1,13 @@
+{{ $items := site.Params.marquee.items }}
+{{ with $items }}
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    {{/* Repeat 3x so the animation loops seamlessly */}}
+    {{ range seq 3 }}
+      {{ range $items }}
+        <span>{{ . }}</span><span class="dot">&#9670;</span>
+      {{ end }}
+    {{ end }}
+  </div>
+</div>
+{{ end }}
