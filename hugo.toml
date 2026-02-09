@@ -65,7 +65,4 @@ theme = 'bold'
 
     [[params.about.stats]]
       number = '10+'
-      label = 'YEARS EXP'
-    [[params.about.stats]]
-      number = 'PhD'
-      label = 'PHYSICS'
+      label = 'YEARS EXPERIENCE'
