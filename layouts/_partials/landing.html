@@ -1,0 +1,168 @@
+<style>
+  nav, .landing, footer {
+    transition: background 0.5s ease;
+  }
+
+  nav, footer {
+    background: #0D1A18;
+  }
+
+  .landing {
+    height: calc(100vh - 64px);
+    display: flex;
+    align-items: stretch;
+    background: #0D1A18;
+    overflow: hidden;
+    position: relative;
+  }
+
+  body:has(.landing-btn-professional:hover) nav,
+  body:has(.landing-btn-professional:hover) .landing,
+  body:has(.landing-btn-professional:hover) footer {
+    background: var(--indigo);
+  }
+
+  body:has(.landing-btn-personal:hover) nav,
+  body:has(.landing-btn-personal:hover) .landing,
+  body:has(.landing-btn-personal:hover) footer {
+    background: #160838;
+  }
+
+  .landing-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.5s ease;
+  }
+
+  .landing-btn-professional:hover {
+    background: rgba(174, 183, 179, 0.12);
+  }
+
+  .landing-btn-personal:hover {
+    background: rgba(166, 87, 174, 0.15);
+  }
+
+  .landing-btn-label {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.2rem, 3vw, 2.5rem);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+    transition: color 0.35s ease;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    user-select: none;
+  }
+
+  .landing-btn-professional:hover .landing-btn-label {
+    color: var(--sage);
+  }
+
+  .landing-btn-personal:hover .landing-btn-label {
+    color: var(--purple);
+  }
+
+  .landing-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    flex-shrink: 0;
+  }
+
+  /* Divider lines */
+  .landing-btn-professional::after,
+  .landing-btn-personal::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .landing-btn-professional::after {
+    right: 0;
+  }
+
+  .landing-btn-personal::before {
+    left: 0;
+  }
+
+  /* Mobile: stack vertically */
+  @media (max-width: 640px) {
+    .landing {
+      height: auto;
+      min-height: calc(100vh - 64px);
+      flex-direction: column;
+    }
+
+    .landing-btn {
+      padding: 2.5rem;
+      min-height: 120px;
+    }
+
+    .landing-btn-label {
+      writing-mode: horizontal-tb;
+      transform: none;
+    }
+
+    .landing-btn-professional::after,
+    .landing-btn-personal::before {
+      top: auto;
+      bottom: 0;
+      left: 10%;
+      right: 10%;
+      width: auto;
+      height: 1px;
+    }
+
+    .landing-center {
+      padding: 2rem;
+    }
+  }
+</style>
+
+{{ $professionalURL := "https://pro.zanoli.xyz" }}
+{{ $personalURL := "https://me.zanoli.xyz" }}
+{{ with site.Params.landing }}
+  {{ with .professionalURL }}{{ $professionalURL = . }}{{ end }}
+  {{ with .personalURL }}{{ $personalURL = . }}{{ end }}
+{{ end }}
+
+{{ $avatarImage := "" }}
+{{ with site.Params.landing }}
+  {{ $avatarImage = .avatarImage }}
+{{ end }}
+
+<section class="landing">
+  <a href="{{ $professionalURL }}" class="landing-btn landing-btn-professional">
+    <span class="landing-btn-label">Work</span>
+  </a>
+
+  <div class="landing-center">
+    <div class="avatar-frame">
+      <div class="main-block">
+        {{ if $avatarImage }}
+          <img class="avatar-img" src="{{ $avatarImage | relURL }}" alt="Portrait">
+        {{ else }}
+          <span class="avatar-initials">HZ</span>
+        {{ end }}
+      </div>
+      <div class="accent-border"></div>
+      <div class="dot-accent"></div>
+      <div class="line-accent"></div>
+    </div>
+  </div>
+
+  <a href="{{ $personalURL }}" class="landing-btn landing-btn-personal">
+    <span class="landing-btn-label">Self</span>
+  </a>
+</section>
