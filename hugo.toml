@@ -30,6 +30,8 @@ theme = 'bold'
 [params]
   logoPrefix = 'HENRIQUE'
   logoAccent = 'ZANOLI'
+  fullName = 'Henrique José Correia Zanoli'
+  alternateName = 'Henrique Zanoli'
 
   [params.landing]
     professionalURL = 'https://work.zanoli.xyz'

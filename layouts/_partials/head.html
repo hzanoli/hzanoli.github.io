@@ -10,3 +10,12 @@
 {{ end }}
 <script data-goatcounter="https://zanoli.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.Params.fullName }}",
+  "alternateName": "{{ site.Params.alternateName }}",
+  "url": "{{ site.BaseURL }}"
+}
+</script>
