@@ -1,7 +1,6 @@
 baseURL = 'https://zanoli.xyz/'
 languageCode = 'en-us'
 title = 'Henrique Zanoli'
-theme = 'bold'
 
 [taxonomies]
 
@@ -37,3 +36,7 @@ theme = 'bold'
     professionalURL = 'https://work.zanoli.xyz'
     personalURL = 'https://self.zanoli.xyz'
     avatarImage = '/img/portrait.jpg'
+
+[module]
+  [[module.imports]]
+    path = 'github.com/hzanoli/colorful-and-bold'
