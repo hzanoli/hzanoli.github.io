@@ -31,6 +31,8 @@ title = 'Henrique Zanoli'
   logoAccent = 'ZANOLI'
   fullName = 'Henrique José Correia Zanoli'
   alternateName = 'Henrique Zanoli'
+  goatcounter = 'zanoli'
+  structuredData = true
 
   [params.landing]
     professionalURL = 'https://work.zanoli.xyz'
